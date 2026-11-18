@@ -1,1 +1,74 @@
-.gitignore
+# Runbook: No Internet Connectivity
+
+**Symptom:** User reports "no internet" / "can't reach websites"
+**Applies to:** Windows 10/11 workstations, Linux desktops, VMs
+**Typical resolution time:** 10–20 minutes
+**Escalation trigger:** Multiple users on the same switch/VLAN affected
+
+## Triage Questions (ask the user first)
+
+1. Can you browse *any* site, or only some? (One site down ≠ no internet)
+2. Are other people nearby affected? (Isolate single-user vs. outage)
+3. Wired or Wi-Fi? Home or office?
+4. Did anything change recently? (New cable, update, moved desks)
+
+## Procedure
+
+### Step 1 — Verify from the workstation
+
+
+```powershell
+ipconfig /all          # Windows — check for valid IP, gateway, DNS
+ping 8.8.8.8           # raw connectivity
+ping google.com        # DNS resolution
+```
+
+```Linux 
+ ip addr show
+ ping
+ resolvectl status
+```
+## Decision tree:
+
+    No IP at all → Layer 1/2: cable, NIC, DHCP (Step 2)
+    Has IP, can't ping 8.8.8.8 → Layer 3: gateway/routing (Step 3)
+    Can ping IP but not names → DNS problem (Step 4)
+    Everything works → application/browser issue (Step 5)
+
+### Step 2 — Physical/DHCP layer
+
+    Reseat/replace the network cable; try a different port
+    Renew lease: ipconfig /release && ipconfig /renew (Windows) or sudo dhclient -r && sudo dhclient (Linux)
+    Check link lights on the NIC and wall jack
+    Wi-Fi: confirm correct SSID, re-enter password, forget/rejoin the network
+
+### Step 3 — Gateway/routing
+
+    ping <default-gateway> — if this fails, the local network is the problem
+    Restart the NIC: disable/re-enable adapter in Device Manager, or sudo ip link set <iface> down && sudo ip link set <iface> up
+    If corporate VPN is involved: disconnect VPN, retest, reconnect
+
+### Step 4 — DNS
+
+    Test with a known-good resolver: nslookup google.com 8.8.8.8
+    If that works, the configured DNS server is bad:
+        Windows: ipconfig /flushdns, check adapter DNS settings
+        Linux: check /etc/resolv.conf or NetworkManager connection settings
+
+### Step 5 — Application layer
+
+    Test in a different browser (rule out proxy extensions/settings)
+    Check system proxy settings (Windows: Settings → Network → Proxy)
+    Antivirus/firewall web filtering can block browsers specifically
+
+## Resolution Notes
+
+Record in the ticket: which layer failed, the exact fix, and verification (user confirms a page loads, not just that ping works).
+
+## Escalate When
+
+    Whole floor/building affected → Network team
+    NIC hardware failure suspected → Desktop support swap
+    Suspected ISP/outage → Confirm with monitoring before escalating
+
+
