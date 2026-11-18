@@ -26,34 +26,45 @@ Each lab or document in this repo simulates a realistic scenario a help desk tec
 ```
 help-desk-portfolio/
 │
-├── troubleshooting-runbooks/     # Step-by-step diagnostic guides
-│   ├── no-internet-connectivity.md
-│   ├── printer-not-printing.md
-│   ├── outlook-wont-open.md
-│   ├── slow-computer.md
-│   └── vpn-connection-fails.md
-│
-├── ticket-examples/              # Sample ticket documentation
-│   ├── ticket-password-reset.md
-│   ├── ticket-onboarding-new-user.md
-│   └── ticket-escalation-example.md
-│
-├── knowledge-base-articles/      # End-user friendly how-to guides
-│   ├── kb-setup-email-mobile.md
-│   ├── kb-map-shared-drive.md
-│   └── kb-safe-browsing-tips.md
-│
-├── scripts/                      # Time-saving utilities (Windows/PowerShell)
-│   ├── get-system-info.ps1
-│   ├── flush-dns-cache.ps1
-│   └── check-disk-space.ps1
-│
-├── labs/                         # Home-lab walkthroughs I completed
-│   ├── lab-active-directory-basic-ou.md
-│   └── lab-ticketing-system-helpdeskru.md
-│
-└── docs/
-    └── escalation-matrix.md      # When/how to escalate to Tier 2
+── docs
+│   ├── closure-email-template.md
+│   ├── escalation-matrix.md
+│   └── ticket-template.md
+├── knowledge-base-articles
+│   ├── map-shared-drive.md
+│   ├── safe-browsing-tips.md
+│   └── setup-email-mobile.md
+├── labs
+│   ├── active-directory-basic-ou.md
+│   └── ticketing-system-helpdeskru.md
+├── README.md
+├── scripts
+│   ├── bash
+│   │   └── disk-report.sh
+│   └── powershell
+│       ├── Get-Diskusage.psl
+│       ├── New-BulkUsers.psl
+│       └── Unlock-UserAccount.psl
+├── ticket-examples
+│   ├── linux
+│   │   ├── Disk_Full_linux.md
+│   │   ├── Shared_Drive_Unavailable.md
+│   │   └── VM_No_Internet.md
+│   └── windows
+│       ├── AD_Password_Reset.md
+│       ├── Bulk_Onboarding_Automation.md
+│       ├── Disk_Full_Windows.md
+│       ├── New_Hire_AD_Provisioning.md
+│       ├── Outlook_Not_Sending.md
+│       └── Printer_Offline_Spooler.md
+└── troubleshooting-runbooks
+    ├── no-internet-connectivity.md
+    ├── outlook-not-opening.md
+    ├── printer-not-printing.md
+    ├── slow-computer.md
+    └── vpn-connection-fails.md
+
+
 ```
 
 ---
