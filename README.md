@@ -71,19 +71,19 @@ help-desk-portfolio/
 
 ## Featured Documents
 
-### 🔧 [Troubleshooting Runbooks](troubleshooting-runbooks/)
+### 🔧 [Troubleshooting Runbooks](https://github.com/Shadovaine/HelpDesk-Portfolio/tree/main/troubleshooting-runbooks)
 Structured diagnostic guides written the way I actually work a problem: identify symptoms → isolate the layer → test systematically → confirm the fix → document it. Written so a brand-new tech could follow them at 2 PM on a Monday with a queue of 20 tickets.
 
-### 🎫 [Ticket Documentation Examples](ticket-examples/)
+### 🎫 [Ticket Documentation Examples](https://github.com/Shadovaine/HelpDesk-Portfolio/tree/main/ticket-examples)
 Sample tickets showing proper documentation hygiene: clear problem statements, actions taken with timestamps, resolution notes, and plain-language user communication. Good ticket notes are the difference between a help desk and a help burden.
 
-### 📖 [Knowledge Base Articles](knowledge-base-articles/)
+### 📖 [Knowledge Base Articles](https://github.com/Shadovaine/HelpDesk-Portfolio/tree/main/knowledge-base-articles)
 End-user-facing guides — because the best tickets are the ones users never have to open. Written at a level that respects the reader without assuming IT fluency.
 
-### ⚡ [Scripts](scripts/)
+### ⚡ [Scripts](https://github.com/Shadovaine/HelpDesk-Portfolio/tree/main/scripts)
 Small PowerShell utilities for the common triage steps every tech runs daily: gathering system info, clearing DNS caches, checking disk space. Each script includes usage instructions and a comment header explaining what it does and why.
 
-### 🏗️ [Labs](labs/)
+### 🏗️ [Labs](https://github.com/Shadovaine/HelpDesk-Portfolio/tree/main/labs)
 Home-lab environments I built and worked through (Active Directory basics, open-source ticketing systems), written up as walkthroughs with what broke and how I fixed it — because the fixes are the actual learning.
 
 ---
